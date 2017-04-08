@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1026166336588",
+    "firebase_url": "https://schoolrequriment.firebaseio.com",
+    "project_id": "schoolrequriment",
+    "storage_bucket": "schoolrequriment.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1026166336588:android:5e96938ed32bb436",
+        "android_client_info": {
+          "package_name": "com.example.bakhtiyar.schoolreqruimentsystem"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1026166336588-b841u8mj35kq5mipl4upl1fm254c19ob.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bakhtiyar.schoolreqruimentsystem",
+            "certificate_hash": "703945673E8F3AC0EDB9C818D7F48F749A258C84"
+          }
+        },
+        {
+          "client_id": "1026166336588-fml4kvqh6qei3uj4mlm7m39a0fbhapoq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASa9gMGpf55Of6w0KZCEUb2y5mqRNWlCg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1026166336588-fml4kvqh6qei3uj4mlm7m39a0fbhapoq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
