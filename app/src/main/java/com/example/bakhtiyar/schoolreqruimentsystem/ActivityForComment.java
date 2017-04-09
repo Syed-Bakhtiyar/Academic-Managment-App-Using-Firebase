@@ -327,7 +327,7 @@ public class ActivityForComment extends AppCompatActivity {
 
                     comment = editText.getText().toString().trim();
 
-                    CommentsClass commentsClass = new CommentsClass( FirebaseDatabase.getInstance().getReference().child("Comments").child(StaticVariables.teachersPostClass.getPush()).push().getKey(), StaticVariables.teachersHire.getName(), StaticVariables.url,comment,null);
+                    CommentsClass commentsClass = new CommentsClass( FirebaseDatabase.getInstance().getReference().child("Comments").child(StaticVariables.teachersPostClass.getPush()).push().getKey(), StaticVariables.mName, StaticVariables.url,comment,null);
 
                     FirebaseDatabase.getInstance().getReference().child("Comments").child(StaticVariables.teachersPostClass.getPush()).child(commentsClass.getPush()).setValue(commentsClass);
 
