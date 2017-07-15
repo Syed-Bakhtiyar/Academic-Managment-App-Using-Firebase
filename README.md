@@ -1,0 +1,7 @@
+# Academic-Managment-App-Using-Firebase
+##In this app there is three panel 1) Manager or honor of academy who can post there academic vacancies accept vacancies, accept, reject, or calling for interview, post there admission requirement and students who apply in that academy Admin of academy can approve, discard or calling for test
+##In Teacher Modules Teacher must create there short CV and apply any academy to teach or as a staff if teacher is approved from any academy, then app give them a dashboard where he or she can post there academy information, can create groups of students like in facebook and teachers photo was display in group, and group posting, attachments uploading downloading, likes, comments
+##In students panel Student can create there profile with there qualification and can apply for admission in any academy if student has enrolled in any academy the will also have a dashboard where he can see the public information posted by teachers and group if he is a member of that group, likes, comments e.t.c below is images where you can see details 
+![manager](https://user-images.githubusercontent.com/17003638/28239262-875bb2fa-6981-11e7-87f9-9a8e637514d3.jpg)
+![teacher](https://user-images.githubusercontent.com/17003638/28239264-8e91930a-6981-11e7-971a-832513ceb57b.jpg)
+![student](https://user-images.githubusercontent.com/17003638/28239265-94ab7f44-6981-11e7-8eb2-77c7338a1654.jpg)
