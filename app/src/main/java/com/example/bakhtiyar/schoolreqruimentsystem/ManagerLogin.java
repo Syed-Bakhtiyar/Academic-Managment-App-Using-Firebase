@@ -28,148 +28,75 @@ import com.google.firebase.auth.FirebaseUser;
 public class ManagerLogin extends Fragment {
 
     FirebaseAuth firebaseAuthGlobal;
-
     FirebaseAuth.AuthStateListener fiAuthStateListener;
-
     String email, password;
-
-    FirebaseUser firebaseUser;
-
     EditText txt_email, txt_password;
-
     Button login;
-
     ProgressDialog progressDialog;
-
     TextView textView;
-
     View view;
 
-
     public ManagerLogin() {
-        // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-
         view = inflater.inflate(R.layout.fragment_manager_login, container, false);
-
-
-
         firebaseAuthGlobal = FirebaseAuth.getInstance();
-
-
-
-//        StaticVariables.uuid =  firebaseAuthGlobal.getCurrentUser().getUid();
-
-
         login = (Button) view.findViewById(R.id.btn_login);
-
         textView = (TextView) view.findViewById(R.id.link_signup);
-
         txt_email = (EditText) view.findViewById(R.id.input_email);
-
         txt_password = (EditText) view.findViewById(R.id.input_password);
-
-
-
-
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
-
                 login() ;
-
-
             }
         });
 
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
                 startActivity(new Intent(getActivity(),CreateManagersProfile.class));
-              //  startActivity(new Intent(getActivity(),SignupActivity.class));
-
             }
         });
-
-
-
-
         return view;
     }
-
-    ///////////////////////
 
     public void login(){
 
 
         email = txt_email.getText().toString().trim();
-
         password = txt_password.getText().toString().trim();
 
         if(TextUtils.isEmpty(email) || TextUtils.isEmpty(password)){
-
             Toast.makeText(getContext(), "Please insert email or password", Toast.LENGTH_SHORT).show();
-
             return;
         }else {
-
             validation();
-
         }
-
     }
 
     public void validation(){
 
         progressDialog = new ProgressDialog(getContext());
-
         progressDialog.setMessage("Wait");
-
         progressDialog.show();
-
 
         firebaseAuthGlobal.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-
                 if(task.isSuccessful()){
-
                     progressDialog.dismiss();
-
                     Toast.makeText(getContext(), "Success", Toast.LENGTH_SHORT).show();
-
-
-
                     StaticVariables.uuid =  firebaseAuthGlobal.getCurrentUser().getUid();
-
                     startActivity(new Intent(getContext(), MProfileActivity.class));
-
-
                 }else {
                     progressDialog.dismiss();
                     Toast.makeText(getContext(), "Not Success", Toast.LENGTH_SHORT).show();
-
                 }
-
             }
         });
-
-
     }
-
-
-    //////////////
-
-
-
 }

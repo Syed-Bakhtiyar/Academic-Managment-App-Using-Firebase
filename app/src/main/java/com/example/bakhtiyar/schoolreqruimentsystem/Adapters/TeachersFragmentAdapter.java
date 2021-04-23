@@ -38,16 +38,10 @@ public class TeachersFragmentAdapter extends FragmentPagerAdapter {
 
                 return new ViewNotification();
             case 3:
-
                 return new Invitation();
 
             default:
-
                 return null;
-
-
-
-
         }
     }
 
@@ -73,7 +67,7 @@ public class TeachersFragmentAdapter extends FragmentPagerAdapter {
                 return "Notification";
             case 3:
 
-                return "Your Academy :)";
+                return "Your Academy";
             default:
 
                 return null;

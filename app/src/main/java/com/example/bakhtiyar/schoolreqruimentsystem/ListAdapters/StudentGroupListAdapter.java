@@ -1,10 +1,13 @@
 package com.example.bakhtiyar.schoolreqruimentsystem.ListAdapters;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -53,18 +56,21 @@ public class StudentGroupListAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         view = inflater.from(context).inflate(R.layout.group_list_students,viewGroup,false);
-
-
-
-
+        final int index = i;
+        if(arrayList.get(index).isSelected()){
+            view.findViewById(R.id.container).setBackgroundColor(Color.parseColor("#ededed"));
+        }
+        CheckBox checkBox = (CheckBox) view.findViewById(R.id.selection);
+        checkBox.setChecked(arrayList.get(index).isSelected());
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                arrayList.get(index).setSelected(isChecked);
+            }
+        });
         name = (TextView) view.findViewById(R.id.name);
-
-        name.setText("Name: "+arrayList.get(i).getName());
-
-
-
-
-
+        name.setText(arrayList.get(i).getName());
+        System.out.println(arrayList);
         return view;
     }
 

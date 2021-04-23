@@ -32,16 +32,6 @@ public class MProfileActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mprofile);
 
-//
-//        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-//        navigationView.setNavigationItemSelectedListener(this);
-/*View view=navigationView.inflateHeaderView(R.layout.nav_header_main);*/
-
-
-
-
-
-
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -50,10 +40,7 @@ public class MProfileActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                startActivity(new Intent(MProfileActivity.this,JobPostActivity.class));
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
+                startActivity(new Intent(MProfileActivity.this, JobPostActivity.class));
             }
         });
 
@@ -74,34 +61,15 @@ public class MProfileActivity extends AppCompatActivity
         FirebaseDatabase.getInstance().getReference().child("Manager").child(StaticVariables.uuid).addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-
-
                 managerInfo = dataSnapshot.getValue(ManagerInfo.class);
-
                 if(managerInfo.getCampusname().equals(null)||managerInfo.getCampusname().equals("")){
-
-
                     navigationView.setVisibility(View.GONE);
-
-
-
-
                 }
                 else {
-
                     navigationView.setVisibility(View.VISIBLE);
-
                     name.setText(managerInfo.getCampusname());
                     email.setText(managerInfo.getEmail());
-
-
-
-
-
                 }
-
-
-
             }
 
             @Override
@@ -124,12 +92,6 @@ public class MProfileActivity extends AppCompatActivity
 
             }
         });
-
-
-
-
-
-
     }
 
     @Override
@@ -187,12 +149,6 @@ public class MProfileActivity extends AppCompatActivity
             startActivity(new Intent(MProfileActivity.this,ForMyStudents.class));
 
         }
-//        } else if (id == R.id.nav_share) {
-//
-//        } else if (id == R.id.nav_send) {
-//
-//        }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

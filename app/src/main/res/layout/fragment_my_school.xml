@@ -14,7 +14,7 @@
 
 
 
-        app:cardCornerRadius="15dp"
+        app:cardCornerRadius="5dp"
         app:cardElevation="3dp">
 
 

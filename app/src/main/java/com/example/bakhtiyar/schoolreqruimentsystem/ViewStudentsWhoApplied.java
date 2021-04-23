@@ -114,18 +114,10 @@ public class ViewStudentsWhoApplied extends Fragment {
                 alert.setPositiveButton("Approve", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-
-
                         FirebaseDatabase.getInstance().getReference().child("MyStudents").child(StaticVariables.uuid).child(arrayList.get(temp).getUid()).setValue(arrayList.get(temp));
-
                         approvalClass = new ApprovalClass(StaticVariables.uuid,arrayList.get(temp).getUid(),StaticVariables.managerInfo.getCampusname());
-
                         FirebaseDatabase.getInstance().getReference().child("StudentApproval").child(approvalClass.getTuid()).child(approvalClass.getMuid()).setValue(approvalClass);
-
                         Toast.makeText(getContext(), "Approved", Toast.LENGTH_SHORT).show();
-
-
-
                     }
                 });
 

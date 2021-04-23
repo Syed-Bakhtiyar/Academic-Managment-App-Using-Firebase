@@ -28,7 +28,7 @@ public class StudentFragmentAdapter extends FragmentPagerAdapter {
 
             case 0:
 
-                return "View Your Profile";
+                return "Profile";
 
             case 1:
 
@@ -39,7 +39,7 @@ public class StudentFragmentAdapter extends FragmentPagerAdapter {
                 return "Notification";
             case 3:
 
-                return "Your Academy :)";
+                return "Your Academy";
             default:
 
                 return null;

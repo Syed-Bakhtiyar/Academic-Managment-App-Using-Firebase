@@ -62,12 +62,11 @@ public class TeachersProfileListAdapter extends BaseAdapter {
         gender = (TextView) view.findViewById(R.id.gender);
         imageView = (ImageView) view.findViewById(R.id.image);
 
-        name.setText(arrayList.get(i).getName());
-        qual.setText(arrayList.get(i).getQualification());
-        exp.setText(arrayList.get(i).getExperience());
-        age.setText(arrayList.get(i).getAge()+"");
-        skill.setText(arrayList.get(i).getSkills());
-        gender.setText(arrayList.get(i).getMale()+"");
+        name.setText("Name: " + arrayList.get(i).getName());
+        qual.setText("Qualification: " + arrayList.get(i).getQualification());
+        exp.setText("Experience: " + arrayList.get(i).getExperience());
+        age.setText("Age: " + arrayList.get(i).getAge());
+        skill.setText("Skills: " + arrayList.get(i).getSkills());
 
         Glide.with(imageView.getContext())
                 .load(arrayList.get(i).getImglink())

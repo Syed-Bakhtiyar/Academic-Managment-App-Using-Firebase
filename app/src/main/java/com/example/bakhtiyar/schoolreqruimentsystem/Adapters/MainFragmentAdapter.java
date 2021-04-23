@@ -14,7 +14,6 @@ import com.example.bakhtiyar.schoolreqruimentsystem.TeacherLogin;
  */
 public class MainFragmentAdapter extends FragmentPagerAdapter {
 
-
     public MainFragmentAdapter(FragmentManager fm) {
         super(fm);
     }
@@ -22,56 +21,28 @@ public class MainFragmentAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         switch (position){
-//            case 0:
-//
-//                return new Admin();
-
             case 0:
-
                 return new ManagerLogin();
-
             case 1:
-
                 return new TeacherLogin();
-
             case 2:
-
                 return new StudentLogin();
-
             default:
-
                 return null;
-
-
-
         }
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
         switch (position){
-//            case 0:
-//
-//                return "Admin";
-
             case 0:
-
                 return "Manager";
-
             case 1:
-
                 return "Teacher";
-
             case 2:
-
                 return "Student";
-
             default:
-
                 return null;
-
-
-
         }
     }
 

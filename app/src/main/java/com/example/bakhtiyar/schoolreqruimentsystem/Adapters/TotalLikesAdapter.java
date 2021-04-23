@@ -50,15 +50,10 @@ public class TotalLikesAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-     convertView = inflater.from(context).inflate(R.layout.group_list_students,parent,false);
-
-
-        textView = (TextView) convertView.findViewById(R.id.name);
-
-
-        textView.setText(arrayList.get(position).getName());
-
-
-        return convertView;
+         convertView = inflater.from(context).inflate(R.layout.group_list_students,parent,false);
+         convertView.findViewById(R.id.selection).setVisibility(View.GONE);
+         textView = (TextView) convertView.findViewById(R.id.name);
+         textView.setText(arrayList.get(position).getName());
+         return convertView;
     }
 }

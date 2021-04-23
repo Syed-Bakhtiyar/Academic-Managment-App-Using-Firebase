@@ -6,12 +6,11 @@ package com.example.bakhtiyar.schoolreqruimentsystem;
 public class StudentInfo {
 
     String uid, push;
-
     String name, fname,qual,dateOfBirth,classs,address,email,phone,ismale;
-
     String url;
-
     int age;
+
+    boolean selected;
 
     public StudentInfo(String uid, String push, String name, String fname, String qual, String dateOfBirth, String classs, String address, String email, String phone, String ismale,String url,int age) {
         this.uid = uid;
@@ -29,6 +28,10 @@ public class StudentInfo {
 
         this.age = age;
 
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getUid() {
@@ -85,5 +88,13 @@ public class StudentInfo {
 
     public StudentInfo() {
 
+    }
+
+    public boolean isSelected() {
+        return selected;
+    }
+
+    public void setSelected(boolean selected) {
+        this.selected = selected;
     }
 }

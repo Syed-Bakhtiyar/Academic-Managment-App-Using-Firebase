@@ -58,6 +58,8 @@ public class TeachersGroup extends Fragment {
 
         v = inflater.inflate(R.layout.fragment_teachers_group, container, false);
 
+
+
         editText = (EditText) v.findViewById(R.id.grpname);
 
         listView = (ListView) v.findViewById(R.id.list);
@@ -66,36 +68,50 @@ public class TeachersGroup extends Fragment {
 
         recieve = new ArrayList<>();
 
+//        for (int i = 0; i < 100; i++){
+//            StudentInfo studentInfo = new StudentInfo();
+//            studentInfo.setName("Bakhtiyar " + (i+1));
+//            recieve.add(studentInfo);
+//        }
+
         v.findViewById(R.id.create).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 grp = editText.getText().toString().trim();
-
+                boolean isSelected = true;
 
                 if(grp == null || grp.equals("")){
-
                     Toast.makeText(getContext(), "Please Type your Group Name", Toast.LENGTH_SHORT).show();
-
                     return;
-
                 }
-                if (added.size() == 0){
 
+                for (StudentInfo st: recieve){
+                    if(st.isSelected()){
+                        isSelected = true;
+                        break;
+                    }
+                    isSelected = false;
+                }
+
+                if (!isSelected){
                     Toast.makeText(getContext(), "Please Select Students", Toast.LENGTH_SHORT).show();
-
                     return;
                 }
 
-
-
+                for (StudentInfo st: recieve){
+                    if(st.isSelected()){
+                        added.add(st);
+                    }
+                }
 
                 groupClass = new GroupClass(StaticVariables.teachersHire.getImglink(),added,grp,StaticVariables.manuid,FirebaseDatabase.getInstance().getReference().child("Groups").child(StaticVariables.manuid).push().getKey(),StaticVariables.uuid);
-
                 FirebaseDatabase.getInstance().getReference().child("Groups").child(StaticVariables.manuid).child(groupClass.getPush()).setValue(groupClass);
-
                 Toast.makeText(getContext(), "Group Created", Toast.LENGTH_SHORT).show();
-
+                for (StudentInfo st: recieve){
+                    st.setSelected(false);
+                }
+                studentProfileListAdapter.notifyDataSetChanged();
             }
         });
 
@@ -108,13 +124,9 @@ public class TeachersGroup extends Fragment {
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
 
                 studentInfo = dataSnapshot.getValue(StudentInfo.class);
-
                 recieve.add(studentInfo);
-
                 StaticVariables.recieve = recieve;
-
                 studentProfileListAdapter.notifyDataSetChanged();
-
             }
 
             @Override
@@ -137,22 +149,6 @@ public class TeachersGroup extends Fragment {
 
             }
         });
-
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-                temp = i;
-
-                listView.getChildAt(temp).setBackgroundColor(Color.YELLOW);
-
-                added.add(recieve.get(temp));
-
-
-            }
-        });
-
 
         return v;
     }

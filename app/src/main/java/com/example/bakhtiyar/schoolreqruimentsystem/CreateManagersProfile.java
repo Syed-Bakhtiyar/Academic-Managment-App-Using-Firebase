@@ -36,29 +36,16 @@ public class CreateManagersProfile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_managers_profile);
-
         dialog = new ProgressDialog(this);
-
         dialog.setMessage("Wait");
-
         firebaseDatabase = FirebaseDatabase.getInstance();
-
         databaseReference = firebaseDatabase.getReference();
-
         firebaseAuthGlobal = FirebaseAuth.getInstance();
-
-
         txt_managname = (EditText) findViewById(R.id.mname);
-
         txt_campusname = (EditText) findViewById(R.id.cname);
-
         txt_address = (EditText) findViewById(R.id.address);
-
         txt_phone = (EditText) findViewById(R.id.phone);
-
         txt_email = (EditText) findViewById(R.id.email);
-
-
         txt_password = (EditText) findViewById(R.id.password);
 
         findViewById(R.id.submit).setOnClickListener(new View.OnClickListener() {
@@ -66,15 +53,10 @@ public class CreateManagersProfile extends AppCompatActivity {
             public void onClick(View view) {
 
                 m_name = txt_managname.getText().toString().trim();
-
                 c_name = txt_campusname.getText().toString().trim();
-
                 address = txt_address.getText().toString().trim();
-
                 phone = txt_phone.getText().toString().trim();
-
                 email = txt_email.getText().toString().trim();
-
                 password = txt_password.getText().toString().trim();
 
                 if(TextUtils.isEmpty(m_name) ||
@@ -82,57 +64,24 @@ public class CreateManagersProfile extends AppCompatActivity {
                         TextUtils.isEmpty(address) ||
                         TextUtils.isEmpty(phone) ||
                         TextUtils.isEmpty(email) || TextUtils.isEmpty(password)){
-
                     Toast.makeText(CreateManagersProfile.this, "Please complete the form", Toast.LENGTH_SHORT).show();
-
                     txt_managname.setText("");
                     txt_campusname.setText("");
                     txt_address.setText("");
                     txt_phone.setText("");
                     txt_email.setText("");
                     txt_password.setText("");
-
-
                     return;
-
                 }else {
-
                     dialog.show();
-
                     signup();
-
-
                 }
-
-
             }
         });
-
-
     }
 
-    public void signup(){
-
-
-//        txt_email = (EditText) findViewB
-//
-//        email = txt_email.getText().toString().trim();
-//
-//        password = txt_password.getText().toString().trim();
-//
-//        if(TextUtils.isEmpty(email) || TextUtils.isEmpty(password)){
-//
-//            Toast.makeText(CreateManagersProfile.this, "Please insert name, email, password", Toast.LENGTH_SHORT).show();
-//
-//            return;
-//        }
-//        else {
-
+    public void signup() {
             validation(email,password);
-
-//        }
-
-
     }
 
     public void validation( final String temp_email, String temp_password){
